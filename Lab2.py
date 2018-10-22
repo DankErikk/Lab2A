@@ -157,6 +157,7 @@ def solution4(list1):
 
 
 def main():
+# Optional choice to ask the user to enter the file names that contain txt data
     '''
     print("Enter file name for first txt file, (dont include .txt)")
     
@@ -183,22 +184,8 @@ def main():
             print("File not found, make sure it in the same directory as this program...")
     '''
 
-    # Turn both list into linked lists
-    mainList = LinkedList()
-    testList = LinkedList()
-
-    firstFileName = "vivendi.txt"
-    secondFileName = "activision.txt"
-
-    # Add elements from file to linked list using method then combine to single list called main list
-    with open(firstFileName) as file:
-        for line in file:
-            mainList.add(int(line))
-    with open(secondFileName) as file:
-        for line in file:
-            mainList.add(int(line))
-
-
+# For testing purposes
+'''
     print("Generating random text files...")
     # Create test files filled with random integers, numbers will range from 0 to 50
     file = open("randomInts10.txt", "w+")
@@ -237,27 +224,45 @@ def main():
 
     millis = int(round(time.time()))
     print("Time: " + str(millis))
+'''
 
+#### START ####
 
+# Turn both list into linked lists
+    mainList = LinkedList()
+    testList = LinkedList()
+
+    firstFileName = "vivendi.txt"
+    secondFileName = "activision.txt"
+
+    # Iterate through both files, add elements to mainList
+    with open(firstFileName) as file:
+        for line in file:
+            mainList.add(int(line))
+    with open(secondFileName) as file:
+        for line in file:
+            mainList.add(int(line))
+    
+    ## SEARCH FOR CLONES USING THE 4 SOLUTIONS ##
 
     # Solve for clones using solution 1 (nested loops)
     print("")
     print("Using solution 1...")
-    #solution1(mainList)
+    solution1(mainList)
 
     # Solve for clones using solution 2 (neighbors) using bubblesort
     print("")
     print("Using solution 2...")
-    #solution2(mainList)
+    solution2(mainList)
 
     # Solve for clones using solution 3 (neighbors) using mergesort
     print("")
     print("Using solution 3...")
-    #solution3(mainList)
+    solution3(mainList)
 
     # Solve for clones using boolean array
     print("")
     print("Using solution 4...")
-    #solution4(mainList)
+    solution4(mainList)
 
 main()

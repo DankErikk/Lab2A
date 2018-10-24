@@ -155,9 +155,10 @@ def solution4(list1):
             seen[tempArray[i]] = True
     print("Clone list size: " + str(len(cloneArray)))
 
-
+#END METHODS########
 def main():
-# Optional choice to ask the user to enter the file names that contain txt data
+    print("STARTING MAIN...")
+    # Optional choice to ask the user to enter the file names that contain txt data
     '''
     print("Enter file name for first txt file, (dont include .txt)")
     
@@ -182,10 +183,9 @@ def main():
             break
         else:
             print("File not found, make sure it in the same directory as this program...")
-    '''
 
-# For testing purposes
-'''
+    # For testing purposes
+    
     print("Generating random text files...")
     # Create test files filled with random integers, numbers will range from 0 to 50
     file = open("randomInts10.txt", "w+")
@@ -224,13 +224,11 @@ def main():
 
     millis = int(round(time.time()))
     print("Time: " + str(millis))
-'''
+    '''
 
-#### START ####
+    #### START ####
 
-# Turn both list into linked lists
     mainList = LinkedList()
-    testList = LinkedList()
 
     firstFileName = "vivendi.txt"
     secondFileName = "activision.txt"
@@ -247,22 +245,33 @@ def main():
 
     # Solve for clones using solution 1 (nested loops)
     print("")
-    print("Using solution 1...")
+    print("Using solution 1 (Nested Loops)...")
+    currTime = time.time()
     solution1(mainList)
+    elapsedTime = time.time() - currTime
+    print("Elapsed time: " + str(elapsedTime))
 
     # Solve for clones using solution 2 (neighbors) using bubblesort
     print("")
-    print("Using solution 2...")
+    print("Using solution 2 (Bubblesort)...")
+    currTime = time.time()
     solution2(mainList)
+    elapsedTime = time.time() - currTime
+    print("Elapsed time: " + str(elapsedTime))
 
     # Solve for clones using solution 3 (neighbors) using mergesort
     print("")
-    print("Using solution 3...")
+    print("Using solution 3 (MergeSort)...")
+    currTime = time.time()
     solution3(mainList)
+    elapsedTime = time.time() - currTime
+    print("Elapsed time: " + str(elapsedTime))
 
     # Solve for clones using boolean array
     print("")
-    print("Using solution 4...")
+    print("Using solution 4 (Hashmap)...")
+    currTime = time.time()
     solution4(mainList)
-
+    elapsedTime = time.time() - currTime
+    print("Elapsed time: " + str(elapsedTime))
 main()
